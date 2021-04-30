@@ -13,18 +13,19 @@
         <td>End Point</td>
         <td>Start Time</td>
         <td>End Time</td>
-        <td>AC Cost</td>
         <td>Non-AC Cost</td>
+        <td>AC Cost</td>
     </tr>
     <%
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://localhost:3306/bus_routing_system";
-            String username="root";
-            String password="";
+            Class.forName("org.mariadb.jdbc.Driver");
+            String dbURL = "jdbc:mariadb://localhost:3306/";
+            String dbName = "bus_routing_system?";
+            String dbUsername = "user=root&password=";
+            String dbPassword = "1234";
             String query="SELECT * FROM Routes";
-            Connection conn=DriverManager.getConnection(url,username,password);
+            Connection conn=DriverManager.getConnection(dbURL+dbName+dbUsername+dbPassword);
             Statement stmt=conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next())

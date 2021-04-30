@@ -18,7 +18,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    implementation 'mysql:mysql-connector-java:8.0.18'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
     implementation 'jstl:jstl:1.2'
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
 

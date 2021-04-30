@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseConnection {
-    String dbURL = "jdbc:mysql://localhost:3306/";
-    String dbName = "bus_routing_system";
-    String dbUsername = "root";
-    String dbPassword = "";
+    String dbURL = "jdbc:mariadb://localhost:3306/";
+    String dbName = "bus_routing_system?";
+    String dbUsername = "user=root&password=";
+    String dbPassword = "1234";
     Statement statement;
     Connection connection;
 
@@ -22,10 +22,10 @@ public class DatabaseConnection {
     }
 
     public void tryConnection() throws Exception{
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("org.mariadb.jdbc.Driver");
 
         try{
-            connection = DriverManager.getConnection(dbURL+dbName,dbUsername,dbPassword);
+            connection = DriverManager.getConnection(dbURL+dbName+dbUsername+dbPassword);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
